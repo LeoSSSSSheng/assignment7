@@ -821,18 +821,25 @@ define("eventful/components/vote-control", ["exports"], function (exports) {
       upVote: function upVote() {
         if (!this.get("upClicked")) {
           var score = this.get("score");
-          score++;
+          if (this.get("downClicked") == false) {
+            score++;
+          } else {
+            score += 2;
+          }
           this.get("onvote")(score);
           this.set("upClicked", true);
           this.set("downClicked", false);
-
           // this.upClicked = true;
         }
       },
       downVote: function downVote() {
         if (!this.get("downClicked")) {
           var score = this.get("score");
-          score--;
+          if (this.upClicked == false) {
+            score--;
+          } else {
+            score -= 2;
+          }
           this.get("onvote")(score);
           this.set("downClicked", true);
           this.set("upClicked", false);
@@ -1589,6 +1596,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("eventful/app")["default"].create({"name":"eventful","version":"0.0.0+71790bd5"});
+  require("eventful/app")["default"].create({"name":"eventful","version":"0.0.0+0874342f"});
 }
 //# sourceMappingURL=eventful.map

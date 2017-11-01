@@ -13,18 +13,27 @@ export default Ember.Component.extend({
     upVote(){
       if(!this.get("upClicked")){
         let score = this.get("score");
-        score++;
+        if(this.get("downClicked") == false){
+          score++;
+        }
+        else{
+          score += 2;
+        }
         this.get("onvote")(score);
         this.set("upClicked", true);
         this.set("downClicked", false);
-
         // this.upClicked = true;
       }
     },
     downVote(){
       if(!this.get("downClicked")){
         let score = this.get("score");
-        score--;
+        if(this.upClicked == false){
+          score--;
+        }
+        else{
+          score -= 2;
+        }
         this.get("onvote")(score);
         this.set("downClicked", true);
         this.set("upClicked", false);
