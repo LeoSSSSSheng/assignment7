@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container">
+
+    <div class="voteControl">
+      {{vote-control score=post.data.score onvote=(action "changeScore")}}
+    </div>
+
+    <div class="textContent">
+      <p>Number of Comments: {{post.data.num_comments}}</p>
+      <p>UPS: {{post.data.ups}}</p>
+      <p>Downs: {{post.data.downs}}</p>
+      <p>Title: {{post.data.title}}</p>
+      <p>Domain: {{post.data.domain}}</p>
+      <p>Date: {{relative-time post.data.created}}</p>
+      <p id="score">Score: {{post.data.score}}</p>
+    </div>
+
+    <div class="imageContent">
+      {{#if post.data.thumbnail}}
+      <img src="{{post.data.thumbnail}}" alt="Image is Self">
+      {{else}}
+      <img src="http://lakefarmbeef.co.nz/wp-content/themes/lakefarm/img/noimage.png" width="160" height="120">
+      {{/if}}
+    </div>
+
+  </div>
+</div>
