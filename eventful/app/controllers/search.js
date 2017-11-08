@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  email:{
+    title:"Sign up for Spring classes!",
+    read: false
+  },
   sortedEvents: Ember.computed('model', function(){
     let events = this.get('model').data.children; //reddis list is data.children
     let sortedEvents = events.sort(function(eventA, eventB){

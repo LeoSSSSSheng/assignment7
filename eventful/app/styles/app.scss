@@ -23,4 +23,11 @@
 	float:right;
 }
 
+.bold{
+	font-weight: bold;
+}
+.normal{
+	font-weight: normal;
+}
+
 @import "ember-bootstrap/bootstrap";

@@ -1,0 +1,9 @@
+<div class="email">
+  <div class="title">
+    {{# if email.read}}
+    <p class="normal">{{email.title}}</p>
+    {{else}}
+    <p class="bold" onclick={{action "markAsRead"}}>{{email.title}}</p>
+    {{/if}}
+  </div>
+</div>
